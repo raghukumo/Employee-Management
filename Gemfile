@@ -38,8 +38,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'rails-erd', group: :development
-gem 'omniauth-google-oauth2'
-gem 'omniauth', '~> 1.3.1'
+gem 'omniauth'
+gem 'omniauth-google-oauth2' 
 
 
 group :development, :test do

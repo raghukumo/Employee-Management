@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_19_053535) do
+ActiveRecord::Schema.define(version: 2018_07_20_064950) do
 
   create_table "assets", force: :cascade do |t|
     t.date "issue_date"
@@ -97,6 +97,8 @@ ActiveRecord::Schema.define(version: 2018_07_19_053535) do
     t.datetime "updated_at", null: false
     t.integer "manager_id"
     t.integer "role_id"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["manager_id"], name: "index_users_on_manager_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
