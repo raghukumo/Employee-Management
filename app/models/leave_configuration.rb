@@ -1,0 +1,2 @@
+class LeaveConfiguration < ApplicationRecord
+end

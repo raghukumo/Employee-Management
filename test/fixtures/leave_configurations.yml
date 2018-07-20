@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sick_leaves: 9.99
+  privilege_leaves: 9.99
+  casual_leaves: 9.99
+  work_from_home: 9.99
+
+two:
+  sick_leaves: 9.99
+  privilege_leaves: 9.99
+  casual_leaves: 9.99
+  work_from_home: 9.99

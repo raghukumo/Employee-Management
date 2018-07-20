@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  privilege_leave: 1
+  sick_leave: 1
+  casual_leave: 1
+  work_from_home: 1
+  user: one
+
+two:
+  privilege_leave: 1
+  sick_leave: 1
+  casual_leave: 1
+  work_from_home: 1
+  user: two
