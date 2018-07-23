@@ -1,31 +1,64 @@
-<div class= 'col-md-5'>
-<div class="panel panel-default devise-bs">
-  <div class="panel-heading">
-    <h4><%= t('.sign_in', default: 'Sign in') %></h4>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+      <i class="icon-reorder shaded"></i>
+      </a>
+      <a class="brand" href="/">
+      Kumolus
+      </a>
+    </div>
   </div>
-  <div class="panel-body">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' }) do |f| %>
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+  <!-- /navbar-inner -->
+</div>
+<!-- /navbar -->
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="module module-login span4 offset4">
+        <%= devise_error_messages! %>
+        <% flash.each do |key, value| %>
+           <div class="flash <%= key %>"><%= value %></div>
+        <% end %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' , class: "form-vertical"}) do |f| %>
+          <div class="module-head">
+            <h3>Sign In</h3>
+          </div>
+          <div class="module-body">
+            <div class="control-group">
+              <div class="controls row-fluid">
+                <%= f.email_field :email, autofocus: true, class: 'span12', placeholder: "Username", id: "inputEmail" %>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls row-fluid">
+                <%= f.password_field :password, autocomplete: 'off', class: 'span12', id: "inputPassword", placeholder: "Password" %>
+              </div>
+            </div>
+          </div>
+          <div class="module-foot">
+            <div class="control-group">
+              <div class="controls clearfix">
+                <%= f.submit  'Login', class: 'btn btn-primary pull-right' %>
+                <% if devise_mapping.rememberable? %>
+                  <div class="checkbox">
+                    <%= f.label :remember_me do %>
+                      <%= f.check_box :remember_me %> <%= t('.remember_me', default: 'Remember me') %>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <%= render 'devise/shared/links' %>
+          </div>
+        <% end %>
       </div>
-      <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, autocomplete: 'off', class: 'form-control' %>
-      </div>
-      <% if devise_mapping.rememberable? %>
-        <div class="checkbox">
-          <%= f.label :remember_me do %>
-            <%= f.check_box :remember_me %> <%= t('.remember_me', default: 'Remember me') %>
-          <% end %>
-        </div>
-      <% end %>
-      <%= f.submit  t('.sign_in', default: 'Sign in'), class: 'btn btn-primary' %>
-      
-      <!%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path(:google_oauth2) %>
-
-    <% end %>
+    </div>
   </div>
 </div>
-<%= render 'devise/shared/links' %>
+<!--/.wrapper-->
+<div class="footer">
+  <div class="container">
+    <b class="copyright">&copy; 2018 Kumolus - Kumolus.com </b> All rights reserved.
+  </div>
 </div>
