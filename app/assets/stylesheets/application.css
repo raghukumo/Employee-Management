@@ -11,7 +11,13 @@
  * It is generally better to create a new file per style scope.
  *
  *= require bootstrap.min
+ *= require font-awesome
+ *= require bootstrap-social
+ *= require bootstrap-responsive.min
  *= require theme
  *= require_self
  */
-
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}

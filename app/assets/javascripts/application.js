@@ -11,7 +11,7 @@
 // about supported directives.
 //= require jquery
 //= require jquery_ujs
-//= jquery-1.9.1.min
+//= require bootstrap.min
 //= jquery-ui-1.10.1.custom.min
 //= jquery.Datatables
 //= require activestorage
