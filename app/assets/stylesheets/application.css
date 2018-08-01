@@ -16,6 +16,8 @@
  *= require bootstrap-responsive.min
  *= require theme
  *= require_self
+ *= require_tree .
+
  */
 .fa-google {
   background: #dd4b39;

@@ -1,4 +1,4 @@
-﻿  <div class="wrapper">
+  <div class="wrapper">
     <div class="container">
       <div class="row">
         <div class="span3">
@@ -11,26 +11,22 @@
 
             <div class="module">
               <div class="module-head">
-                <h3>Leave Configuration</h3>
+                <h3>User</h3>
               </div>
               <div class="module-body table">
                 <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped  display" width="100%">
                   <thead>
                     <tr>
-                      <th>Sick Leaves</th>
-                      <th>Privilage Leaves</th>
-                      <th>Work From home</th>
-                      <th>Casual Leaves</th>
+                      <th>email id</th>
+                      <th>role id</th>                    
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="odd gradeX">
-                      <%@leave_configuration.each do |leave|%>
-                        <td><%=leave.sick_leaves%></td>
-                        <td><%=leave.privilege_leaves%></td>
-                        <td><%=leave.work_from_home%></td>
-                        <td><%=leave.casual_leaves%></td>
-                      <%end%>
+                      <%@user.each do |user|%>
+                        <tr class="odd gradeX">                 
+                        <td><%=user.email%></td>
+                        <td><%=user.role_id%></td>
+                       <%end%>
                     </tr>
                    
                    </tbody>
@@ -45,7 +41,6 @@
       </div>
     </div><!--/.container-->
   </div><!--/.wrapper-->
-
 
   <script>
     $(document).ready(function() {

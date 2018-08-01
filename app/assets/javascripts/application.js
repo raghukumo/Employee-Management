@@ -11,11 +11,8 @@
 // about supported directives.
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap.min
+//= jquery.dataTables
 //= jquery-ui-1.10.1.custom.min
-//= jquery.Datatables
-//= require activestorage
-//= cable
-//= common
-//= home
+//= require bootstrap.min
 //= require turbolinks
+//= require_tree .

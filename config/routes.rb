@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-  resources :home
   root to: "home#index"
+  #get 'home/index'
 
-  root to: "index#leave_configuration"
-  
-  get "index/leave_configuration"  
-
+  resources :home do 
+    collection do
+      get 'index'
+      get 'leave_configuration' 
+      get 'user'
+      get 'add_employee'
+      get 'employee_list'
+    end
+  end
  end
