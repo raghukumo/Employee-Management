@@ -10,9 +10,25 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //= require jquery
+//= require best_in_place
+//= require jquery-ui
+//= require best_in_place.jquery-ui
+
 //= require jquery_ujs
 //= jquery.dataTables
 //= jquery-ui-1.10.1.custom.min
 //= require bootstrap.min
+
+
+
 //= require turbolinks
-//= require_tree .
+
+$(document).ready(function() {
+  /* Activating Best In Place */
+  jQuery(".best_in_place").best_in_place();
+});
+
+
+
+
+

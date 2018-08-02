@@ -23,3 +23,17 @@
   background: #dd4b39;
   color: white;
 }
+.m-footer {
+    position: absolute;
+    bottom: 6px;
+    margin: 0px 0px 0px 20px;
+}
+
+.wrapper {
+  height: 500px;
+}
+
+.m-footer {
+  text-align: center;
+}
+

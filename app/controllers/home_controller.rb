@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  #respond_to :html, :json
   def index
   end
 
@@ -9,8 +10,8 @@ class HomeController < ApplicationController
   end
 
   def leave_configuration
-    @leave_configuration = LeaveConfiguration.all
-  end
+    @leave_configs = LeaveConfiguration.all
+     end
 
   def add_employee
 
@@ -20,7 +21,19 @@ class HomeController < ApplicationController
     @user = User.all
   end
 
+  def update
+    LeaveConfiguration.update(leave_config_params)
+   # respond_with @leave_configs
+
+  end
+
   def employee_list
 
   end
+
+  private
+    def leave_config_params
+      params.require(:leave_configuration).permit(:sick_leaves, :privilege_leaves, :work_from_home, :casual_leaves)
+    end
+
 end
