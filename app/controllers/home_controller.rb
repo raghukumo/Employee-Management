@@ -18,13 +18,25 @@ class HomeController < ApplicationController
   end
 
   def user
-    @user = User.all
+    @users = User.all
   end
 
   def update
-    LeaveConfiguration.update(leave_config_params)
+    
+    #debugger
+    @roles = Role.all
+    if params[:id] == 'user'
+    user = User.find(params[:user_id])
+    user.update(user_params)
+    elsif params[:id] == 'leave_configuration'
+     LeaveConfiguration.update(leave_config_params)  
+    end
    # respond_with @leave_configs
+  end
 
+  def role
+    #@roles = Role.all
+    
   end
 
   def employee_list
@@ -36,4 +48,7 @@ class HomeController < ApplicationController
       params.require(:leave_configuration).permit(:sick_leaves, :privilege_leaves, :work_from_home, :casual_leaves)
     end
 
+    def user_params
+      params.require(:user).permit(:email, :role_id, :manager_id)
+    end
 end

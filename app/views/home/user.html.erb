@@ -14,21 +14,29 @@
                 <h3>User</h3>
               </div>
               <div class="module-body table">
-                <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped  display" width="100%">
+                <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped  display"" width="100%">
                   <thead>
                     <tr>
                       <th>email id</th>
-                      <th>role id</th>                    
+                      <th>role</th>                    
+                      <th>manager id</th>
                     </tr>
                   </thead>
                   <tbody>
-                      <%@user.each do |user|%>
-                        <tr class="odd gradeX">                 
-                        <td><%=user.email%></td>
-                        <td><%=user.role_id%></td>
+                      <%@users.each do |user|%>
+                        <tr class="odd gradeX">
+                        <td><%=best_in_place user, :email, as: :input,url: user_home_index_path(user_id: user.id)%>
+                 
+                         
+                          <td><%= best_in_place user, :role_id, as: :select, :collection => {"1" => "Admin", "2" => "User", "3" => "Line Manager"}, url: user_home_index_path(user_id: user.id)%>
+
+                          
+                          <td><%=best_in_place user, :manager_id, as: :input, url: user_home_index_path(user_id: user.id)%>
+                          
+                          
+
                        <%end%>
-                    </tr>
-                   
+                      </tr>
                    </tbody>
                 </table>
               </div>
@@ -41,13 +49,3 @@
       </div>
     </div><!--/.container-->
   </div><!--/.wrapper-->
-
-  <script>
-    $(document).ready(function() {
-      $('.datatable-1').dataTable();
-      $('.dataTables_paginate').addClass("btn-group datatable-pagination");
-      $('.dataTables_paginate > a').wrapInner('<span />');
-      $('.dataTables_paginate > a:first-child').append('<i class="icon-chevron-left shaded"></i>');
-      $('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
-    } );
-  </script>

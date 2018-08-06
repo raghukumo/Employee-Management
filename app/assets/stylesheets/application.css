@@ -37,3 +37,13 @@
   text-align: center;
 }
 
+.input_field input {
+    width: 400px;
+}
+
+.test {
+  background:gray;
+  width:200px;
+  height:200px;
+  cursor:url(/assets/Pen-2-icon.png), auto;
+}
