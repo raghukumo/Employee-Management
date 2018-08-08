@@ -12,4 +12,7 @@ Rails.application.routes.draw do
       get 'employee_list'
     end
   end
- end
+
+  get 'edit_user/:id' =>'users#edit_user', as: :edit_user
+  put 'update_user' => 'users#update_user'    
+end

@@ -1,51 +1,49 @@
-  <div class="wrapper">
-    <div class="container">
-      <div class="row">
-        <div class="span3">
-           <%= render "/layouts/sidebar" %>
-        </div><!--/.span3-->
-
-
-        <div class="span9">
-          <div class="content">
-
-            <div class="module">
-              <div class="module-head">
-                <h3>User</h3>
-              </div>
-              <div class="module-body table">
-                <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped  display"" width="100%">
-                  <thead>
-                    <tr>
-                      <th>email id</th>
-                      <th>role</th>                    
-                      <th>manager id</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                      <%@users.each do |user|%>
-                        <tr class="odd gradeX">
-                        <td><%=best_in_place user, :email, as: :input,url: user_home_index_path(user_id: user.id)%>
-                 
-                         
-                          <td><%= best_in_place user, :role_id, as: :select, :collection => {"1" => "Admin", "2" => "User", "3" => "Line Manager"}, url: user_home_index_path(user_id: user.id)%>
-
-                          
-                          <td><%=best_in_place user, :manager_id, as: :input, url: user_home_index_path(user_id: user.id)%>
-                          
-                          
-
-                       <%end%>
-                      </tr>
-                   </tbody>
-                </table>
-              </div>
-            </div><!--/.module-->
-
-            <br />
-
-          </div><!--/.content-->
-        </div><!--/.span9-->
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="span3">
+        <%= render "/layouts/sidebar" %>
       </div>
-    </div><!--/.container-->
-  </div><!--/.wrapper-->
+      <!--/.span3-->
+      <div class="span9">
+        <div class="content">
+          <div class="module">
+            <div class="module-head">
+              <h3>User</h3>
+            </div>
+            <div class="module-body table">
+              <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped  display"" width="100%">
+                <thead>
+                  <tr>
+                    <th>email id</th>
+                    <th>role</th>
+                    <!-- <th>manager</th>  -->
+                    <th>manager</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%@users.each do |user|%>
+                  <tr class="odd gradeX">
+                    <td><%=best_in_place user, :email, as: :input,url: user_home_index_path(user_id: user.id)%>
+                    <td><%= best_in_place user, :role_id, as: :select, :collection => {"1" => "Admin", "2" => "User", "3" => "Line Manager"}, url: user_home_index_path(user_id: user.id)%>
+                      <%#@users.each do |user|%>
+                      <td><%= select_tag 'manager', options_from_collection_for_select(@users, "id", "email"), prompt: "-Select Manager-"%></td>
+                      <%#end%>                     
+                      <%#end%>                     
+                  </tr>
+                  <%end%>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!--/.module-->
+          <br />
+        </div>
+        <!--/.content-->
+      </div>
+      <!--/.span9-->
+    </div>
+  </div>
+  <!--/.container-->
+</div>
+<!--/.wrapper-->

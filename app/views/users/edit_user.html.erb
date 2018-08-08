@@ -1,0 +1,101 @@
+  <div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="span3">
+           <%= render "/layouts/sidebar" %>
+        </div><!--/.span3-->
+
+
+        <div class="span9">
+          <div class="content">
+
+            <div class="module">
+              <div class="module-head">
+                <h3> </h3>
+              </div>
+          
+ 
+  <%= form_for [@user, @profile], url: update_user_path, method: 'put' do |form| %>
+
+           
+
+                    <p>
+                      <%= form.label :first_name %><br>
+                      <%= form.text_field :first_name %>
+                    </p>
+                   
+                    <p>
+                      <%= form.label :last_name %><br>
+                      <%= form.text_field :last_name %>
+                    </p>
+
+                    <p>
+                      <%= form.label :address %><br>
+                      <%= form.text_area :address %>
+                    </p>
+                   
+                    <p>
+                      <%= form.label :city %><br>
+                      <%= form.text_field :city %>
+                    </p>
+
+                    <p>
+                      <%= form.label :designation %><br>
+                      <%= form.text_field :designation %>
+                    </p>
+
+                    <p>
+                      <%= form.label :dob %><br>
+                      <%= form.text_field :dob %>
+                    </p>
+
+                    <p>
+                      <%= form.label :gender %><br>
+                      <%= form.text_field :gender %>
+                    </p>
+
+
+                   <p>
+                      <%= form.label :employee_code %><br>
+                      <%= form.text_field :employee_code %>
+                    </p>
+
+                  <p>
+                      <%= form.label :joining_date %><br>
+                      <%= form.text_field :employee_code %>
+                    </p>
+
+
+                  <p>
+                      <%= form.label :maratial_status %><br>
+                      <%= form.text_field :maratial_status %>
+                    </p>
+
+                  <p>
+                      <%= form.label :mobile_number %><br>
+                      <%= form.text_field :mobile_number %>
+                    </p>
+
+                   <p>
+                      <%= form.submit %>
+                    </p>
+                   
+
+                  <% end %>
+                   
+
+
+
+
+
+
+            
+            </div><!--/.module-->
+
+            <br />
+
+          </div><!--/.content-->
+        </div><!--/.span9-->
+      </div>
+    </div><!--/.container-->
+  </div><!--/.wrapper-->

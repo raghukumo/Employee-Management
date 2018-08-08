@@ -11,10 +11,9 @@ class HomeController < ApplicationController
 
   def leave_configuration
     @leave_configs = LeaveConfiguration.all
-     end
+  end
 
   def add_employee
-
   end
 
   def user
@@ -22,25 +21,19 @@ class HomeController < ApplicationController
   end
 
   def update
-    
-    #debugger
     @roles = Role.all
     if params[:id] == 'user'
-    user = User.find(params[:user_id])
-    user.update(user_params)
+      user = User.find(params[:user_id])
+      user.update(user_params)
     elsif params[:id] == 'leave_configuration'
-     LeaveConfiguration.update(leave_config_params)  
+      LeaveConfiguration.update(leave_config_params)  
     end
-   # respond_with @leave_configs
   end
 
-  def role
-    #@roles = Role.all
-    
+  def role  
   end
 
   def employee_list
-
   end
 
   private

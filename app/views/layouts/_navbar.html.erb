@@ -17,8 +17,8 @@
                 <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Your Profile</a></li>
-                  <li><a href="#">Edit Profile</a></li>
                   <li><a href="#">Account Settings</a></li>
+                  <li><%= link_to('Edit Profile', edit_user_path(id:current_user.id) ) %></li>
                   <li class="divider"></li>
                   <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
                 </ul>
