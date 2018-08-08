@@ -26,6 +26,8 @@ gem "font-awesome-rails"
 gem 'bootstrap-sass'
 #gem 'bootstrap-editable-rails'
 gem 'best_in_place'
+gem 'bootstrap-datepicker-rails'
+
 
 
 # Use Redis adapter to run Action Cable in production

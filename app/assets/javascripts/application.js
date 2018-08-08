@@ -18,8 +18,7 @@
 //= jquery.dataTables
 //= jquery-ui-1.10.1.custom.min
 //= require bootstrap.min
-
-
+//= require bootstrap-datepicker
 
 //= require turbolinks
 
@@ -58,9 +57,6 @@ function saveSettings() {
     localStorage['email'] = input.value;
 }
 }
-
-
-
 
 
 

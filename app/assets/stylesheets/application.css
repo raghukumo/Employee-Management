@@ -16,6 +16,8 @@
  *= require bootstrap-responsive.min
  *= require theme
  *= require_self
+ *= require bootstrap-datepicker
+
  *= require_tree .
 
  */
@@ -24,7 +26,7 @@
   color: white;
 }
 .m-footer {
-    position: absolute;
+    position: fixed;
     bottom: 6px;
     margin: 0px 0px 0px 20px;
 }
@@ -99,3 +101,4 @@
 .dropdown a:hover {background-color: #ddd;}
 
 .show {display: block;}
+

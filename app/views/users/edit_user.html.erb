@@ -11,91 +11,105 @@
 
             <div class="module">
               <div class="module-head">
-                <h3> </h3>
+                <h3> Edit User </h3>
               </div>
           
- 
-  <%= form_for [@user, @profile], url: update_user_path, method: 'put' do |form| %>
+              <div class="module-body"> 
 
-           
+          <%= form_for [@user, @profile], url: update_user_path, method: 'put', class: "form-vertical" do |form| %>
+                  
 
-                    <p>
-                      <%= form.label :first_name %><br>
-                      <%= form.text_field :first_name %>
-                    </p>
+                  <div class="control-group">
+                    <div class="controls row-fluid">                  
+                      <%= form.label :first_name, class: 'control-label' %>
+                      <%= form.text_field :first_name, class: 'span8' %>
+                     </div>
+                   </div>                 
+                  <div class="control-group">
+                    <div class="controls row-fluid">
+                      <%= form.label :last_name, class: 'control-label' %>
+                      <%= form.text_field :last_name, class: 'span8' %>
+                    </div>
+                   </div>
+                  <div class="control-group">
+                    <div class="controls row-fluid">
+                      <%= form.label :address, class: 'control-label' %>
+                      <%= form.text_area :address, class: 'span8' %>
+                    </div>
+                   </div>
                    
-                    <p>
-                      <%= form.label :last_name %><br>
-                      <%= form.text_field :last_name %>
-                    </p>
+                   <div class="control-group">
+                    <div class="controls row-fluid">
+                      <%= form.label :city, class: 'control-label'%>
+                      <%= form.text_field :city, class: 'span4'%>
+                    </div>
+                   </div>
+                    <div class="control-group">
+                    <div class="controls row-fluid">
+                      <%= form.label :designation, class: 'control-label'  %>
+                      <%= form.text_field :designation, class: 'span8' %>
+                    </div>
+                   </div>
+                    <div class="control-group">
+                    <div class="controls row-fluid">
+                      <%= form.label :dob, class: 'control-label' %>
+                      <%= form.text_field :dob, class: 'datepicker' %>
+                    </div>
+                   </div>
+                    <div class="control-group">
+                    <div class="controls row-fluid">
+                      <%= form.label :gender, class: 'control-label' %>
+                      <%= form.radio_button :gender, 'male' %>male<br />
+                      <%= form.radio_button :gender, 'female' %>female<br />
+   
+                   </div>
+                   </div>
+                    <div class="control-group">
+                    <div class="controls row-fluid">
+                      <%= form.label :employee_code, class: 'control-label' %>
+                      <%= form.text_field :employee_code, class: 'span4' %>
+                    </div>
+                   </div>
+                    <div class="control-group">
+                    <div class="controls row-fluid">
+                      <%= form.label :joining_date, class: 'control-label' %>
+                      <%= form.text_field :join_date, class: 'datepicker' %>
+                    </div>
+                   </div>
 
-                    <p>
-                      <%= form.label :address %><br>
-                      <%= form.text_area :address %>
-                    </p>
-                   
-                    <p>
-                      <%= form.label :city %><br>
-                      <%= form.text_field :city %>
-                    </p>
+                    <div class="control-group">
+                    <div class="controls row-fluid">
+                      <%= form.label :maratial_status, class: 'control-label' %>
+                      <%= form.radio_button :maratial_status, 'married' %>married<br />
+                      <%= form.radio_button :maratial_status, 'unmarried' %>unmarried<br />
+                    </div>
+                   </div>
 
-                    <p>
-                      <%= form.label :designation %><br>
-                      <%= form.text_field :designation %>
-                    </p>
-
-                    <p>
-                      <%= form.label :dob %><br>
-                      <%= form.text_field :dob %>
-                    </p>
-
-                    <p>
-                      <%= form.label :gender %><br>
-                      <%= form.text_field :gender %>
-                    </p>
-
-
-                   <p>
-                      <%= form.label :employee_code %><br>
-                      <%= form.text_field :employee_code %>
-                    </p>
-
-                  <p>
-                      <%= form.label :joining_date %><br>
-                      <%= form.text_field :employee_code %>
-                    </p>
-
-
-                  <p>
-                      <%= form.label :maratial_status %><br>
-                      <%= form.text_field :maratial_status %>
-                    </p>
-
-                  <p>
-                      <%= form.label :mobile_number %><br>
-                      <%= form.text_field :mobile_number %>
-                    </p>
-
-                   <p>
-                      <%= form.submit %>
-                    </p>
-                   
+                    <div class="control-group">
+                    <div class="controls row-fluid">
+                      <%= form.label :mobile_number, class: 'control-label' %>
+                      <%= form.text_field :mobile_number, class: 'span8' %>
+                    </div>
+                   </div>
+<!--                       <%= form.submit %>
+ -->                   <div class="control-group">
+                      <div class="controls">
+                        <button type="submit" class="btn">Update profile</button>
+                      </div>
+                    </div>
 
                   <% end %>
-                   
-
-
-
-
-
-
-            
+                </form>
+            </div>
             </div><!--/.module-->
-
-            <br />
-
           </div><!--/.content-->
         </div><!--/.span9-->
       </div>
     </div><!--/.container-->
   </div><!--/.wrapper-->
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+</script>
