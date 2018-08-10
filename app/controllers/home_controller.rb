@@ -16,11 +16,13 @@ class HomeController < ApplicationController
   def add_employee
   end
 
-  def user
+  def all_users
     @users = User.all
+    authorize! :read, @users
   end
 
   def update
+    authorize! :read, @leave_configs
     @roles = Role.all
     if params[:id] == 'user'
       user = User.find(params[:user_id])

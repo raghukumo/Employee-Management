@@ -31,4 +31,17 @@ class User < ApplicationRecord
       end
     end  
   end
+
+
+  def is_user?
+    self.role.code.eql?'user'
+  end
+
+  def is_line_manager?
+    self.role.code.eql?'linemanager'
+  end
+
+  def is_admin?
+    self.role.code.eql?'admin'  
+  end
 end

@@ -28,10 +28,7 @@
   <div class="container">
     <div class="row">
       <div class="module module-login span4 offset4">
-        <%= devise_error_messages! %>
-        <% flash.each do |key, value| %>
-           <div class="flash <%= key %>"><%= value %></div>
-        <% end %>
+       
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' , class: "form-vertical"}) do |f| %>
           <div class="module-head">
             <h3>Sign In</h3>

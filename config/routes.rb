@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     collection do
       get 'index'
       get 'leave_configuration' 
-      get 'user'
+      get 'all_users'
       get 'add_employee'
       get 'employee_list'
     end

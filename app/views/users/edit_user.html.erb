@@ -15,9 +15,14 @@
               </div>
           
               <div class="module-body"> 
-
-          <%= form_for [@user, @profile], url: update_user_path, method: 'put', class: "form-vertical" do |form| %>
-                  
+  <p>Visible only for superadmins and supervisors! </p>
+          <%= form_for [@user, @profile], url: update_user_path, method: 'put', class: "form-horizontal row-fluid" do |form| %>
+                
+                <!-- <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>Well done!</strong> Now you are listening me :) 
+                  </div>
+   -->
 
                   <div class="control-group">
                     <div class="controls row-fluid">                  
@@ -80,15 +85,15 @@
                     <div class="control-group">
                     <div class="controls row-fluid">
                       <%= form.label :maratial_status, class: 'control-label' %>
-                      <%= form.radio_button :maratial_status, 'married' %>married<br />
-                      <%= form.radio_button :maratial_status, 'unmarried' %>unmarried<br />
+                      <%= form.radio_button :maratial_status, 'married' %>married<br/>
+                      <%= form.radio_button :maratial_status, 'unmarried' %>unmarried<br/>
                     </div>
                    </div>
 
                     <div class="control-group">
                     <div class="controls row-fluid">
                       <%= form.label :mobile_number, class: 'control-label' %>
-                      <%= form.text_field :mobile_number, class: 'span8' %>
+                      <%= form.text_field :mobile_number, class: 'span8', required: true %>
                     </div>
                    </div>
 <!--                       <%= form.submit %>
@@ -100,7 +105,7 @@
 
                   <% end %>
                 </form>
-            </div>
+              </div>
             </div><!--/.module-->
           </div><!--/.content-->
         </div><!--/.span9-->
