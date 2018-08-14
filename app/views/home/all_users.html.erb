@@ -14,7 +14,7 @@
             <div class="module-body table">
               <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped  display"" width="100%">
                 <thead>
-                <% if true%>
+                <% if can? :update, @user%>
 
                   <tr>
                     <th>email id</th>
@@ -29,7 +29,8 @@
                     <td><%=best_in_place user, :email, as: :input,url: all_users_home_index_path(user_id: user.id)%>
                     <td><%= best_in_place user, :role_id, as: :select, :collection => {"1" => "Admin", "2" => "User", "3" => "Line Manager"}, url: all_users_home_index_path(user_id: user.id)%>
                       <%#@users.each do |user|%>
-                      <td><%= select_tag 'manager', options_from_collection_for_select(@users, "id", "email"), prompt: "-Select Manager-"%></td>
+                      <td><%= best_in_place user, :email, as: :select, :collection => User.connection.select_values("SELECT email FROM users"), url: all_users_home_index_path(user_id: user.id)%>
+                    
                       <%#end%>                     
                       <%#end%>                     
                   </tr>

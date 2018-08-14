@@ -1,0 +1,121 @@
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+  <div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="span3">
+           <%= render "/layouts/sidebar" %>
+        </div><!--/.span3-->
+
+
+        <div class="span9">
+          <div class="content">
+
+            <div class="module">
+              <div class="module-head">
+                <h3> Asset Information </h3>
+              </div>
+              <div class="module-body"> 
+               
+                <%= form_with scope: :assets, url: create_assets_home_index_path,class: "form-horizontal row-fluid",local: true do |form| %>
+                   <div class="control-group">
+                    <div class="controls row-fluid">                  
+                    <p><%= form.label :Serial_Number, class: 'control-label' %>
+                      <%= form.text_field :sr_no, class: 'span4',required: true %></p>
+                    </div>
+
+                    <div class="controls row-fluid">                  
+                      <p><%= form.label :Catagory, class: 'control-label' %>
+                      <%= form.text_field :catagory, class: 'span4', required: true %></p>
+                    </div>
+
+                   
+                     <div class="controls row-fluid">                  
+                      <p><%= form.label :issue_date, class: 'control-label' %>
+                      <%= form.text_field :issue_date, class: 'datepicker'  %></p>
+                     </div>
+
+                     <div class="controls row-fluid">                  
+                      <p><%= form.label :Brand, class: 'control-label' %>
+                      <%= form.text_field :brand, class: 'span4', required: true %></p>
+                     </div>
+
+                     <div class="controls row-fluid">                  
+                      <p><%= form.label :Version, class: 'control-label' %>
+                      <%= form.text_field :version, class: 'span4', required: true %></p>
+                     </div>
+                   </div>                
+                      
+                     <div class="controls row-fluid">                  
+                      <p><%= form.label :Operating_System, class: 'control-label' %>
+                      <%= form.radio_button :os, 'windows' %>windows<br />
+                      <%= form.radio_button :os, 'linux' %>linux<br />
+   
+                     </div>
+                   </div>     
+
+                    <div class="control-group">
+                      <div class="controls">
+                        <button type="submit" class="btn">Add assets</button>
+                      </div>
+                    </div>           
+                <% end%>
+              <div class="module-body table">
+                <span >
+
+                <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped  display" width="100%">
+                  <thead>
+                    <tr>
+                      <th>Serial number</th>
+                      <th>Catagory</th>
+                      <th>Issue date</th>
+                      <th>Brand</th>
+                      <th>Version</th>
+                      <th>OS</th>
+                      <th>Remove</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="odd gradeX">
+                        <%@assets.each do |assets|%>
+
+                        <td><%=best_in_place assets, :sr_no, as: :input, url:     add_assets_home_index_path(asset_id: assets.id) %>
+                        </td>
+                          
+                        <td><%=best_in_place assets, :catagory, as: :input, url:  add_assets_home_index_path(asset_id: assets.id)%>
+                        </td>
+                       
+                        <td><%=best_in_place assets, :issue_date, :as => :date , url:  add_assets_home_index_path(asset_id: assets.id)%>
+                        </td>
+
+                        <td><%=best_in_place assets, :brand, as: :input, url:  add_assets_home_index_path(asset_id: assets.id)%>
+                        </td>
+
+                        <td><%=best_in_place assets, :version, as: :input, url: add_assets_home_index_path(asset_id: assets.id)%>
+                        </td>
+
+                        <td><%=best_in_place assets, :os, as: :input, url:  add_assets_home_index_path(asset_id: assets.id)%>
+                        </td>
+
+                        <td>
+                        
+                        <%= link_to ('<i class="fas fa-trash-alt"></i>').html_safe, add_assets_home_index_path(asset_id: assets.id), method: 'delete', data: { confirm: 'Are you sure?' }%></td>
+                    </tr>
+                   <%end%>
+                   </tbody>
+                </table>
+
+              </div>
+            </div><!--/.module-->
+          </div><!--/.content-->
+        </div><!--/.span9-->
+      </div>
+    </div><!--/.container-->
+  </div><!--/.wrapper-->
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+</script>

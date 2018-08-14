@@ -15,15 +15,9 @@
               </div>
           
               <div class="module-body"> 
-  <p>Visible only for superadmins and supervisors! </p>
+<!--   <p>Visible only for superadmins and supervisors! </p> -->
+          
           <%= form_for [@user, @profile], url: update_user_path, method: 'put', class: "form-horizontal row-fluid" do |form| %>
-                
-                <!-- <div class="alert alert-success">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>Well done!</strong> Now you are listening me :) 
-                  </div>
-   -->
-
                   <div class="control-group">
                     <div class="controls row-fluid">                  
                       <%= form.label :first_name, class: 'control-label' %>

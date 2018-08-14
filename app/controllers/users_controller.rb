@@ -5,12 +5,12 @@ class UsersController < ApplicationController
   end
 
   def edit_user
-    
+    #debugger
     @user = User.find(params[:id])
     if current_user.user_profile.present?
       @profile = current_user.user_profile
     else
-      #authorize! :read, @users
+      #authorize! :read, @user 
       @profile = current_user.build_user_profile
     end
   end

@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   #respond_to :html, :json
   def index
+    
   end
 
   def new
@@ -10,25 +11,41 @@ class HomeController < ApplicationController
   end
 
   def leave_configuration
-    @leave_configs = LeaveConfiguration.all
+    if current_user.user_profile.present?
+      @leave_configs = LeaveConfiguration.all
+    else
+      authorize! :read, @user
+    end
   end
 
   def add_employee
   end
 
   def all_users
-    @users = User.all
-    authorize! :read, @users
+    if current_user.user_profile.present?
+      @users = User.all
+    else
+      authorize! :read, @user
+    end
   end
 
   def update
-    authorize! :read, @leave_configs
-    @roles = Role.all
-    if params[:id] == 'user'
+    binding.pry
+    #authorize! :read, @leave_configs
+    #authorize! :read, @users
+    #@roles = Role.all
+    if params[:id] == 'all_users'
+      
+      
       user = User.find(params[:user_id])
       user.update(user_params)
+      redirect_to all_users_home_index_path(current_user.id)
+
     elsif params[:id] == 'leave_configuration'
+
       LeaveConfiguration.update(leave_config_params)  
+      redirect_to leave_configuration_home_index_path(current_user.id)
+      
     end
   end
 
