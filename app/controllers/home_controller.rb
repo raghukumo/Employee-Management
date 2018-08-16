@@ -30,16 +30,26 @@ class HomeController < ApplicationController
   end
 
   def update
-    binding.pry
+    #binding.pry
     #authorize! :read, @leave_configs
     #authorize! :read, @users
     #@roles = Role.all
     if params[:id] == 'all_users'
       
-      
-      user = User.find(params[:user_id])
-      user.update(user_params)
-      redirect_to all_users_home_index_path(current_user.id)
+      if params[:email].present?
+        @email1 = User.select(:email).map(&:email)[user_params["email"].to_i-1]
+        mgr_user = User.find_for_authentication(:email => @email1)
+        mgrid = mgr_user.id
+        email2 = params[:email] 
+        update_user = User.find_for_authentication(:email => email2)
+        update_user.update(manager_id: mgr_user.id)
+
+
+      elsif params[:user_id].present?       
+        user = User.find(params[:user_id])
+        user.update(user_params)
+        redirect_to all_users_home_index_path(current_user.id)
+      end
 
     elsif params[:id] == 'leave_configuration'
 

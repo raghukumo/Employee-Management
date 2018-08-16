@@ -19,8 +19,8 @@
                   <tr>
                     <th>email id</th>
                     <th>role</th>
-                    <!-- <th>manager</th>  -->
-                    <th>manager</th>
+                    <th>change manager</th> 
+                    <th>manager id</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -29,8 +29,9 @@
                     <td><%=best_in_place user, :email, as: :input,url: all_users_home_index_path(user_id: user.id)%>
                     <td><%= best_in_place user, :role_id, as: :select, :collection => {"1" => "Admin", "2" => "User", "3" => "Line Manager"}, url: all_users_home_index_path(user_id: user.id)%>
                       <%#@users.each do |user|%>
-                      <td><%= best_in_place user, :email, as: :select, :collection => User.connection.select_values("SELECT email FROM users"), url: all_users_home_index_path(user_id: user.id)%>
+                    <td><%= best_in_place user, :email, as: :select, :collection => User.select(:email).map(&:email) , url: all_users_home_index_path(email: user.email)%>
                     
+                    <td><%=user.email%>
                       <%#end%>                     
                       <%#end%>                     
                   </tr>

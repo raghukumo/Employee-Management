@@ -5,13 +5,8 @@ class AssetsController < ApplicationController
 def add_assets_info
     if current_user.user_profile.present?
       @user = current_user
-      if current_user.assets.present?
         @assets = current_user.assets
-      else
-      authorize! :read, @users
-      @assets = current_user.assets.build 
-      end
-    else
+         else
       authorize! :read, @user
     end
 end
